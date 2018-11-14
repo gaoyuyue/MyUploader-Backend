@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql:///MyUploader?useUnicode=true&characterEncoding=utf-8&serverTimeZone=UTC&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 10000Mb
+      max-request-size: 100000Mb
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: cn.attackme.myuploader.model
+upload:
+  path: ./upload/
