@@ -39,8 +39,8 @@ public class FileUtils {
     public static void writeWithBlok(String target, Long targetSize, InputStream src, Long srcSize, Integer chunks, Integer chunk) throws IOException {
         RandomAccessFile randomAccessFile = new RandomAccessFile(target,"rw");
         randomAccessFile.setLength(targetSize);
-        if (chunk == chunks - 1 && chunk != 0) {
-            randomAccessFile.seek(chunk * (targetSize - srcSize) / chunk);
+        if (chunk == chunks - 1) {
+            randomAccessFile.seek(targetSize - srcSize);
         } else {
             randomAccessFile.seek(chunk * srcSize);
         }
