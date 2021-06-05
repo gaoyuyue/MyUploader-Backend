@@ -1,6 +1,7 @@
 package cn.attackme.myuploader.controller;
 
 import cn.attackme.myuploader.service.FileService;
+import jdk.internal.jline.internal.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,6 +28,7 @@ public class BigFileUploadController {
                        Integer chunks,
                        Integer chunk,
                        MultipartFile file) throws IOException {
+        Log.info("大文件上传");
         if (chunks != null && chunks != 0) {
             fileService.uploadWithBlock(name, md5,size,chunks,chunk,file);
         } else {
